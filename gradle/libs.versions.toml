@@ -4,6 +4,7 @@ springDependencyManagement = "1.1.7"
 springSession = "3.5.0"
 kotlin = "1.9.23"
 querydsl = "5.1.0"
+
 jooq = "3.18.7"
 junit = "5.10.3"
 assertj = "3.25.3"
@@ -38,11 +39,14 @@ springBootStarterOauth2Client = { module = "org.springframework.boot:spring-boot
 springSessionDataRedis = { module = "org.springframework.session:spring-session-data-redis", version.ref = "springSession" }
 
 # Database & ORM
-querydslJpa = { module = "com.querydsl:querydsl-jpa", version.ref = "querydsl", classifier = "jakarta" }
-querydslApt = { module = "com.querydsl:querydsl-apt", version.ref = "querydsl", classifier = "jakarta" }
+
+# Database & ORM
+querydslJpa = { module = "com.querydsl:querydsl-jpa", version.ref = "querydsl" }
+querydslApt = { module = "com.querydsl:querydsl-apt", version.ref = "querydsl" }
 jooq = { module = "org.jooq:jooq", version.ref = "jooq" }
 mysqlConnectorJ = { module = "com.mysql:mysql-connector-j", version.ref = "mysql" }
 jakartaPersistenceApi = { module = "jakarta.persistence:jakarta.persistence-api", version.ref = "jakartaPersistence" }
+postgresql = { module = "org.postgresql:postgresql", version = "42.7.3" }
 
 # Development Tools
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }

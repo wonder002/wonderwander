@@ -11,12 +11,14 @@ repositories {
     mavenCentral()
 }
 
+
+
 val libs = extensions.getByType<org.gradle.api.artifacts.VersionCatalogsExtension>().named("libs")
 
 dependencies {
     implementation(libs.findLibrary("kotlinGradlePlugin").get())
-    implementation(pluginCoord(libs.findPlugin("springBoot")))
-    implementation(pluginCoord(libs.findPlugin("springDependencyManagement")))
+    implementation(pluginCoord(libs.findPlugin("springBoot").get()))
+    implementation(pluginCoord(libs.findPlugin("springDependencyManagement").get()))
 }
 
 fun DependencyHandler.pluginCoord(plugin: Provider<PluginDependency>): String =

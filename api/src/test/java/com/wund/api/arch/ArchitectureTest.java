@@ -1,6 +1,5 @@
 package com.wund.api.arch;
 
-
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.library.GeneralCodingRules.*;
 
