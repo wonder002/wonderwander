@@ -22,4 +22,5 @@ dependencies {
 }
 
 fun DependencyHandler.pluginCoord(plugin: Provider<PluginDependency>): String =
-    plugin.get().let { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version.requiredVersion}" }
+    plugin.orNull?.let { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version.requiredVersion}" }
+        ?: error("Version catalog plugin alias not found for buildSrc: expected plugin entry is missing.")

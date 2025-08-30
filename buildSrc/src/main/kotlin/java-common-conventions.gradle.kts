@@ -13,7 +13,6 @@ val libs = extensions.getByType<org.gradle.api.artifacts.VersionCatalogsExtensio
 
 dependencies {
     testImplementation(platform(libs.findLibrary("testcontainersBom").get()))
-    testImplementation(libs.findLibrary("springBootStarterTest").get())
     testRuntimeOnly(libs.findLibrary("h2Database").get())
 }
 

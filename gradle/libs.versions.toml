@@ -2,7 +2,7 @@
 springBoot = "3.5.5"
 springDependencyManagement = "1.1.7"
 springSession = "3.5.0"
-kotlin = "1.9.23"
+kotlin = "1.9.25"
 querydsl = "5.1.0"
 
 jooq = "3.18.7"
@@ -37,8 +37,6 @@ springBootStarterOauth2Client = { module = "org.springframework.boot:spring-boot
 
 # Spring Session
 springSessionDataRedis = { module = "org.springframework.session:spring-session-data-redis", version.ref = "springSession" }
-
-# Database & ORM
 
 # Database & ORM
 querydslJpa = { module = "com.querydsl:querydsl-jpa", version.ref = "querydsl" }
@@ -78,7 +76,8 @@ kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", ver
 springBootWeb = ["springBootStarter", "springBootStarterWeb", "springBootStarterValidation"]
 
 # Spring Data Stack
-springData = ["springBootStarterDataJpa", "springBootStarterDataRedis"]
+springDataJpa = ["springBootStarterDataJpa"]
+springDataRedis = ["springBootStarterDataRedis"]
 
 # Spring Security Stack
 springSecurity = ["springBootStarterSecurity", "springBootStarterOauth2Client"]
@@ -86,14 +85,16 @@ springSecurity = ["springBootStarterSecurity", "springBootStarterOauth2Client"]
 # Redis & Session Management
 redisSession = ["springBootStarterDataRedis", "springSessionDataRedis"]
 
-# Database Essentials
-databaseCore = ["mysqlConnectorJ", "jakartaPersistenceApi"]
+# Database Essentials (infra 전용)
+databaseCore = ["mysqlConnectorJ"]
+# Persistence API (도메인 전용)
+persistenceApi = ["jakartaPersistenceApi"]
 
 # QueryDSL Tools
 querydsl = ["querydslJpa", "querydslApt"]
 
 # Testing - Core Platform
-testingCore = ["junitJupiterApi", "junitJupiterEngine", "springBootStarterTest"]
+testingCore = ["springBootStarterTest"]
 
 # Testing - Assertion & Mocking
 testingMocking = ["assertjCore", "mockitoCore", "mockitoJunitJupiter"]
@@ -102,7 +103,7 @@ testingMocking = ["assertjCore", "mockitoCore", "mockitoJunitJupiter"]
 testingIntegration = ["testcontainersJunitJupiter", "testcontainersRedis"]
 
 # Complete Testing Suite
-testingFull = ["junitJupiterApi", "junitJupiterEngine", "springBootStarterTest", "assertjCore", "mockitoCore", "mockitoJunitJupiter", "testcontainersJunitJupiter"]
+testingFull = ["springBootStarterTest", "testcontainersJunitJupiter", "testcontainersRedis"]
 
 # Architecture Testing
 archunit = ["archunit"]

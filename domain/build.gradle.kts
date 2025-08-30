@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-    implementation(libs.bundles.springData)
-    implementation(libs.bundles.databaseCore)
+    implementation(libs.bundles.springDataJpa)
+    implementation(libs.bundles.persistenceApi)
     implementation(libs.querydslJpa) {
         artifact {
             classifier = "jakarta"

@@ -6,17 +6,19 @@ import static com.tngtech.archunit.library.GeneralCodingRules.*;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 @DisplayName("아키텍처 규칙 테스트")
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ArchitectureTest {
 
   private JavaClasses classes;
 
-  @BeforeEach
+  @BeforeAll
   void setUp() {
     classes =
         new ClassFileImporter()
@@ -59,6 +61,16 @@ class ArchitectureTest {
       @DisplayName("표준 스트림 접근 금지")
       void noStandardStreams() {
         NO_CLASSES_SHOULD_ACCESS_STANDARD_STREAMS.allowEmptyShould(true).check(classes);
+      }
+    }
+
+    @Nested
+    @DisplayName("DI 규칙")
+    class DependencyInjectionRules {
+      @Test
+      @DisplayName("필드 주입 사용 금지")
+      void noFieldInjection() {
+        NO_CLASSES_SHOULD_USE_FIELD_INJECTION.allowEmptyShould(true).check(classes);
       }
     }
   }
