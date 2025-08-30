@@ -19,5 +19,15 @@ dependencies {
     implementation(plugin(libs.findPlugin("springDependencyManagement").get()))
 }
 
-fun DependencyHandler.plugin(plugin: Provider<PluginDependency>) =
+/**
+     * Converts a `Provider<PluginDependency>` into a `Provider<String>` containing Gradle plugin coordinates.
+     *
+     * The produced provider, when realized, yields a coordinate string in the form
+     * `pluginId:pluginId.gradle.plugin:version` using the dependency's `pluginId` and `version.requiredVersion`.
+     * The conversion is lazy — no values are resolved until the returned provider is queried.
+     *
+     * @param plugin Provider of the plugin dependency to convert.
+     * @return A provider that produces the plugin coordinate string.
+     */
+    fun DependencyHandler.plugin(plugin: Provider<PluginDependency>) =
     plugin.map { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version.requiredVersion}" }
