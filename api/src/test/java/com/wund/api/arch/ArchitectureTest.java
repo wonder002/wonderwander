@@ -28,7 +28,7 @@ class ArchitectureTest {
   @DisplayName("일반적인 코딩 규칙 준수 검증")
   static class GeneralCodingRulesTest {
 
-    private final JavaClasses classes = new ClassFileImporter().importPackages("com.yourcompany");
+    private final JavaClasses classes = new ClassFileImporter().importPackages("com.wund");
 
     @Nested
     @DisplayName("예외 처리 규칙")
@@ -36,7 +36,7 @@ class ArchitectureTest {
       @Test
       @DisplayName("Generic 예외를 던지지 않는다")
       void noGenericExceptions() {
-        NO_CLASSES_SHOULD_THROW_GENERIC_EXCEPTIONS.check(classes);
+        NO_CLASSES_SHOULD_THROW_GENERIC_EXCEPTIONS.allowEmptyShould(true).check(classes);
       }
     }
 
@@ -46,19 +46,19 @@ class ArchitectureTest {
       @Test
       @DisplayName("java.util.logging 사용 금지")
       void noJavaUtilLogging() {
-        NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING.check(classes);
+        NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING.allowEmptyShould(true).check(classes);
       }
 
       @Test
       @DisplayName("Joda-Time 사용 금지")
       void noJodaTime() {
-        NO_CLASSES_SHOULD_USE_JODATIME.check(classes);
+        NO_CLASSES_SHOULD_USE_JODATIME.allowEmptyShould(true).check(classes);
       }
 
       @Test
       @DisplayName("표준 스트림 접근 금지")
       void noStandardStreams() {
-        NO_CLASSES_SHOULD_ACCESS_STANDARD_STREAMS.check(classes);
+        NO_CLASSES_SHOULD_ACCESS_STANDARD_STREAMS.allowEmptyShould(true).check(classes);
       }
     }
   }

@@ -1,5 +1,6 @@
 plugins {
     id("library-conventions")
+    id("jacoco-conventions")
 }
 
 dependencies {

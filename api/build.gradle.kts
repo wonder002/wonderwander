@@ -1,5 +1,6 @@
 plugins {
     id("springboot-conventions")
+    id("jacoco-conventions")
 }
 
 dependencies {
