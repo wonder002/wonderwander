@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     implementation(libs.bundles.springBootWeb)
-    implementation(project(":domain"))
     implementation(project(":application"))
+
+    testImplementation(libs.bundles.archunit)
 }
