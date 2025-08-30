@@ -1,0 +1,15 @@
+# Terraform 변수 설정 예시
+# 이 파일을 terraform.tfvars로 복사하고 값을 수정하세요
+
+aws_region = "ap-northeast-2"  # 서울 리전
+instance_type = "t2.micro"     # 프리티어
+environment = "development"
+project_name = "wonderwander"
+
+# 보안: 본인의 IP 주소로 변경하세요 (https://whatismyipaddress.com/)
+# 예:
+allowed_ssh_cidr =
+
+# RDS 설정 (필요시 주석 해제)
+db_username =
+db_password =

@@ -7,10 +7,29 @@ build/
 
 ### IntelliJ IDEA ###
 .idea
+docs/
 *.iws
 *.iml
 *.ipr
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+
+### Environment & Secrets ###
+.env*
+secret/
+application-*-secret.properties
+application-*-secret.yml
+
+### Docker ###
+*.dockerignore
+
+### CI/CD Reports ###
+**/build/reports/owasp/
+
+### Terraform ###
+terraform/terraform.tfvars
+terraform/.terraform/
+terraform/*.tfstate*
+terraform/.terraform.lock.hcl
 
