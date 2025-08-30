@@ -4,6 +4,7 @@ import org.gradle.plugin.use.PluginDependency
 
 plugins {
     `kotlin-dsl`
+    alias(libs.plugins.spotless)
 }
 
 repositories {

@@ -14,6 +14,7 @@ mysql = "8.0.33"
 jakartaPersistence = "3.1.0"
 h2 = "2.2.224"
 archunit = "1.3.0"
+spotless = "6.26.1"
 
 [libraries]
 # Spring Boot Starters
@@ -103,3 +104,4 @@ archunit = ["archunit"]
 springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
 springDependencyManagement = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }

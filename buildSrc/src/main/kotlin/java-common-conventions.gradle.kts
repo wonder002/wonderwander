@@ -11,6 +11,14 @@ java {
     }
 }
 
+spotless {
+    java {
+        target("src/**/*.java")
+        googleJavaFormat()
+        // You can add more formatters or rules here if needed
+    }
+}
+
 val libs = extensions.getByType<org.gradle.api.artifacts.VersionCatalogsExtension>().named("libs")
 
 dependencies {
