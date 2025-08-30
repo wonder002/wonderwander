@@ -1,6 +1,7 @@
 plugins {
     id("java-common-conventions")
     alias(libs.plugins.spotless) apply false
+    alias(libs.plugins.owaspDependencyCheck) apply false
 }
 
 allprojects {
@@ -10,6 +11,7 @@ allprojects {
 
 subprojects {
     apply(plugin = "com.diffplug.spotless")
+    apply(plugin = "org.owasp.dependencycheck")
     
     configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         java {
@@ -19,6 +21,19 @@ subprojects {
             removeUnusedImports()
             trimTrailingWhitespace()
             endWithNewline()
+        }
+    }
+    
+    configure<org.owasp.dependencycheck.gradle.extension.DependencyCheckExtension> {
+        autoUpdate = true
+        format = org.owasp.dependencycheck.reporting.ReportGenerator.Format.ALL.toString()
+        outputDirectory = "build/reports/owasp"
+        failBuildOnCVSS = 7.0f
+        skipConfigurations = listOf("compileClasspath", "testCompileClasspath")
+        analyzers.apply {
+            assemblyEnabled = false
+            nuspecEnabled = false
+            nodeEnabled = false
         }
     }
 }
