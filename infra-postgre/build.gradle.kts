@@ -4,5 +4,5 @@ plugins {
 
 dependencies {
     implementation(project(":domain"))
-    runtimeOnly(libs.mysqlConnectorJ)
+    runtimeOnly(libs.postgresql)
 }

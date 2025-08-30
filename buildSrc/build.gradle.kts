@@ -15,9 +15,9 @@ val libs = extensions.getByType<org.gradle.api.artifacts.VersionCatalogsExtensio
 
 dependencies {
     implementation(libs.findLibrary("kotlinGradlePlugin").get())
-    implementation(plugin(libs.findPlugin("springBoot").get()))
-    implementation(plugin(libs.findPlugin("springDependencyManagement").get()))
+    implementation(pluginCoord(libs.findPlugin("springBoot")))
+    implementation(pluginCoord(libs.findPlugin("springDependencyManagement")))
 }
 
-fun DependencyHandler.plugin(plugin: Provider<PluginDependency>) =
-    plugin.map { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version.requiredVersion}" }
+fun DependencyHandler.pluginCoord(plugin: Provider<PluginDependency>): String =
+    plugin.get().let { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version.requiredVersion}" }

@@ -7,8 +7,4 @@ plugins {
 
 apply(plugin = "io.spring.dependency-management")
 
-configure<DependencyManagementExtension> {
-    imports {
-        mavenBom("org.testcontainers:testcontainers-bom:1.19.7")
-    }
-}
+

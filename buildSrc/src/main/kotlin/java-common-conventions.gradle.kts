@@ -1,8 +1,7 @@
 plugins {
     `java-library`
+    kotlin("jvm")
 }
-
-apply(plugin = "org.jetbrains.kotlin.jvm")
 
 java {
     toolchain {

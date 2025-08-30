@@ -1,6 +1,6 @@
 package com.wund.api.arch;
 
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
+
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.library.GeneralCodingRules.*;
 
@@ -26,9 +26,10 @@ class ArchitectureTest {
   }
 
   @DisplayName("일반적인 코딩 규칙 준수 검증")
-  static class GeneralCodingRulesTest {
+  @Nested
+  class GeneralCodingRulesTest {
 
-    private final JavaClasses classes = new ClassFileImporter().importPackages("com.wund");
+    // 외부 ArchitectureTest.this.classes 사용
 
     @Nested
     @DisplayName("예외 처리 규칙")

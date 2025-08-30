@@ -11,6 +11,7 @@ val libs = extensions.getByType<org.gradle.api.artifacts.VersionCatalogsExtensio
 configure<DependencyManagementExtension> {
     imports {
         mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
-        mavenBom("org.testcontainers:testcontainers-bom:1.19.7")
+        val tcVersion = libs.findVersion("testcontainers").get().toString()
+        mavenBom("org.testcontainers:testcontainers-bom:$tcVersion")
     }
 }
