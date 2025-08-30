@@ -1,0 +1,61 @@
+# Git
+.git
+.gitignore
+.gitattributes
+.gitmodules
+
+# Build artifacts
+**/build/
+**/target/
+.gradle/
+
+# Node/JS (if present)
+**/node_modules/
+**/.pnpm-store/
+**/.yarn/cache/
+**/.next/
+**/dist/
+
+# Terraform
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.*
+.terragrunt-cache/
+crash.log
+crash.*.log
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Environment files
+.env*
+
+# Secrets/Keys
+*.pem
+*.key
+id_rsa
+id_ecdsa
+id_ed25519
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
+docs/
+
+# CI/CD
+.github/
+
+# Test reports
+**/reports/
+**/test-results/
+**/jacoco/
+coverage/

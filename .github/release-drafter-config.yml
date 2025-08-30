@@ -1,0 +1,40 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+categories:
+  - title: '✨ New Features'
+    labels: ['✨ feat', 'feature']
+  - title: '🐞 Bug Fixes'
+    labels: ['🐞 fix', 'bugfix']
+  - title: '🔨 Refactoring'
+    labels: ['🔨 refactor', 'refactor']
+  - title: '📃 Documentation'
+    labels: ['📃 docs', 'documentation']
+  - title: '⚙️ Configuration & Maintenance'
+    labels: ['⚙️ chore', 'chore']
+  - title: '✅ Tests'
+    labels: ['✅ test', 'tests']
+  - title: '🎨 Style & Format'
+    labels: ['🎨 style', 'style']
+  - title: '⚡ Performance'
+    labels: ['⚡ perf', 'performance']
+
+change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
+
+template: |
+  ## 🚀 What's Changed
+  
+  $CHANGES
+  
+  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
+
+no-changes-template: 'No changes in this release 🎉'
+
+version-resolver:
+  major:
+    labels: ['1️⃣ major', 'breaking']
+  minor:
+    labels: ['2️⃣ minor', 'enhancement']
+  patch:
+    labels: ['3️⃣ patch', 'patch']
+  default: patch

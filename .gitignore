@@ -5,20 +5,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
 ### IntelliJ IDEA ###
 .idea
+docs/
 *.iws
 *.iml
 *.ipr
@@ -26,12 +15,21 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+### Environment & Secrets ###
+.env*
+secret/
+application-*-secret.properties
+application-*-secret.yml
 
-### VS Code ###
-.vscode/
+### Docker ###
+*.dockerignore
+
+### CI/CD Reports ###
+**/build/reports/owasp/
+
+### Terraform ###
+terraform/terraform.tfvars
+terraform/.terraform/
+terraform/*.tfstate*
+terraform/.terraform.lock.hcl
+
